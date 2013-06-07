@@ -7,6 +7,7 @@
   };
 
   function Queue() {
+    //double ended queue
     this.front = null;
     this.back = null;
   };
