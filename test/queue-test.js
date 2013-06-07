@@ -108,6 +108,24 @@ describe('Queue', function() {
       q.enqueue(x);
       x = 2;
       assert.notEqual(2, q.front.value);
+      assert.equal(1, q.front.value);
+    });
+  });
+  describe('#peek', function() {
+    it('should return null from empty queue', function() {
+      var q = new Queue();
+      assert.equal(null, q.peek());
+    });
+    it('should return 1 from enqueued(1) queue', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      assert.equal(1, q.peek());
+    });
+    it('should return 1 from enqueued(1).enqueued(2) queue', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      assert.equal(1, q.peek());
     });
   });
 });

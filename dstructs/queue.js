@@ -36,7 +36,10 @@
       }
     },
     peek: function() {
-
+      if(!this.front) return null;
+      else {
+        return this.front.value;
+      }
     },
     toArray: function() {
       var arr = [];
