@@ -60,5 +60,40 @@ describe('Queue', function() {
       var len = q.toArray().length;
       assert.equal(0, len);
     });
+    it('dequeue order is correct', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.enqueue(3);
+      assert.equal(1, q.dequeue());
+      assert.equal(2, q.dequeue());
+      assert.equal(3, q.dequeue());
+    });
+    it('dequeue too many returns null', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.enqueue(3);
+      assert.equal(1, q.dequeue());
+      assert.equal(2, q.dequeue());
+      assert.equal(3, q.dequeue());
+      assert.equal(null, q.dequeue());
+    });
+    it('empty queue has front and back equal to null', function() {
+      var q = new Queue();
+      assert.equal(null, q.front);
+      assert.equal(null, q.back);
+    });
+    it('dequeued queue has front and back equal to null', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.enqueue(3);
+      q.dequeue();
+      q.dequeue();
+      q.dequeue();
+      assert.equal(null, q.front);
+      assert.equal(null, q.back);
+    });
   });
 });

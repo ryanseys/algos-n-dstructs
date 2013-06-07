@@ -22,6 +22,7 @@
     },
     dequeue: function() {
       var front = this.front;
+      if(!front) return null;
       if(!front.prev) {
         this.front = null;
         this.back  = null;
