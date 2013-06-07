@@ -95,5 +95,19 @@ describe('Queue', function() {
       assert.equal(null, q.front);
       assert.equal(null, q.back);
     });
+    it('modifying the object after enqueue should reflect change', function() {
+      var q = new Queue();
+      var x = { val : 1 }; // object
+      q.enqueue(x);
+      x.val = 2;
+      assert.equal(2, q.front.value.val);
+    });
+    it('modifying literal after enqueue should not be changed', function() {
+      var q = new Queue();
+      var x = 1; // literal
+      q.enqueue(x);
+      x = 2;
+      assert.notEqual(2, q.front.value);
+    });
   });
 });
