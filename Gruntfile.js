@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       testAll: {
         src: 'tests/*.js',
         options: {
-          reporter: 'nyan',
+          reporter: 'min',
         }
       }
     }
@@ -20,4 +20,4 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-cafe-mocha');
   grunt.registerTask('default', ['cafemocha']);
-}
+};

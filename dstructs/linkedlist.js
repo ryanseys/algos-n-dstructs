@@ -39,17 +39,7 @@
       }
     },
     print: function() {
-      if(this.root == null) console.log('[]');
-      else if(this.root.next == null) console.log('[' + this.root.getValue() + ']');
-      else {
-        var arr = [];
-        var node = this.root;
-        while(node != null) {
-          arr.push(node.getValue());
-          node = node.next;
-        }
-        console.log(JSON.stringify(arr).replace(/,/g, "-->"));
-      }
+      console.log(JSON.stringify(this.toArray()));
     },
     search: function(value) {
       //return the first index of the value if found
@@ -76,10 +66,13 @@
       this.root = new LinkedListNode(value, this.root);
     },
     toArray: function() {
-      if(this.root == null) return [];
-      else if(this.root.next == null) return [].push(this.root.value);
+      var arr = [];
+      if(this.root == null) return arr;
+      else if(this.root.next == null) {
+        arr.push(this.root.value);
+        return arr;
+      }
       else {
-        var arr = [];
         var node = this.root;
         while(node != null) {
           arr.push(node.getValue());
