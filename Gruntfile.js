@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     },
     cafemocha: {
       testAll: {
-        src: 'test/*.js',
+        src: 'tests/*.js',
         options: {
           reporter: 'nyan',
         }
