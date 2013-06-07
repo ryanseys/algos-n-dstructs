@@ -13,16 +13,33 @@
   Queue.prototype = {
     enqueue: function(value) {
       if(!this.front && !this.back) this.front = this.back = new Node(value);
+      else {
+        var back = this.back;
+        this.back = new Node(value);
+        this.back.next = back;
+        this.back.next.prev = this.back;
+      }
     },
     dequeue: function() {
-
+      var front = this.front;
+      if(!front.prev) {
+        this.front = null;
+        this.back  = null;
+        return front.value;
+      }
+      else {
+        this.front = this.front.prev;
+        this.front.next = null;
+        front.prev = null;
+        return front.value;
+      }
     },
     peek: function() {
 
     },
     toArray: function() {
       var arr = [];
-      var node = this.front;
+      var node = this.back;
       while(node) {
         arr.push(node.value)
         node = node.next;
