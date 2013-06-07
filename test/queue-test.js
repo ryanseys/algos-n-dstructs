@@ -2,6 +2,7 @@ var assert = require("assert");
 var q = require('../dstructs/queue');
 var Queue = q.Queue;
 
+// Queue Tests
 describe('Queue', function() {
   describe('#enqueue', function() {
     it('should return an empty array after initialized', function() {
