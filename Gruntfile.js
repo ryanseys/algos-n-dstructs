@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    // $ grunt watch
     watch: {
       files: ['**/*.js', '!Gruntfile.js'],
       tasks: ['cafemocha']
@@ -10,7 +11,6 @@ module.exports = function(grunt) {
       testAll: {
         src: 'test/*.js',
         options: {
-          growl: true,
           reporter: 'nyan',
         }
       }
