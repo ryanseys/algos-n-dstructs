@@ -53,6 +53,8 @@ describe('LinkedList', function() {
       assert.equal(0, list.search(4));
       assert.equal(1, list.search(3));
       assert.equal(2, list.search(2));
+      list.insertAtHead(2);
+      assert.equal(0, list.search(2));
     });
   });
 });
