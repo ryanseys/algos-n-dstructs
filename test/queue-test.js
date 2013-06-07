@@ -205,4 +205,36 @@ describe('Queue', function() {
       assert.equal(q.front.value, q.front.prev.next.value);
     });
   });
+  describe('#toArray', function() {
+    it('should be [] on empty queue', function() {
+      var q = new Queue();
+      assert.equal(JSON.stringify([]), JSON.stringify(q.toArray()))
+    });
+    it('should be [1] on queue.enqueue(1)', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      assert.equal(JSON.stringify([1]), JSON.stringify(q.toArray()))
+    });
+    it('should be [2, 1] on queue.enqueue(1).enqueue(2)', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      assert.equal(JSON.stringify([2, 1]), JSON.stringify(q.toArray()))
+    });
+    it('should be [3, 2, 1] on queue.enqueue(1).enqueue(2).enqueue(3)', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.enqueue(3);
+      assert.equal(JSON.stringify([3, 2, 1]), JSON.stringify(q.toArray()))
+    });
+    it('should be [3, 2] on queue.enqueue(1).enqueue(2).enqueue(3).dequeue()', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.enqueue(3);
+      q.dequeue();
+      assert.equal(JSON.stringify([3, 2]), JSON.stringify(q.toArray()))
+    });
+  });
 });
