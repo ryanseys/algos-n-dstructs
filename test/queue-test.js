@@ -116,16 +116,93 @@ describe('Queue', function() {
       var q = new Queue();
       assert.equal(null, q.peek());
     });
-    it('should return 1 from enqueued(1) queue', function() {
+    it('should return 1 from queue.enqueue(1)', function() {
       var q = new Queue();
       q.enqueue(1);
       assert.equal(1, q.peek());
     });
-    it('should return 1 from enqueued(1).enqueued(2) queue', function() {
+    it('should return 1 from queue.enqueue(1).enqueue(2)', function() {
       var q = new Queue();
       q.enqueue(1);
       q.enqueue(2);
       assert.equal(1, q.peek());
+    });
+    it('should return 2 from queue.enqueue(1).enqueue(2).dequeue()', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.dequeue();
+      assert.equal(2, q.peek());
+    });
+    it('should return null from queue.enqueue(1).enqueue(2).dequeue().dequeue()', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.enqueue(2);
+      q.dequeue();
+      q.dequeue();
+      assert.equal(null, q.peek());
+    });
+  });
+  describe('next and prev', function() {
+    it('front value should be first enqueued value', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(one, q.front.value);
+    });
+    it('back value should be last enqueued value', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(three, q.back.value);
+    });
+    it('front.prev should be second enqueued', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(two, q.front.prev.value);
+    });
+    it('back.next should be second-last enqueued', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(two, q.back.next.value);
+    });
+    it('back.next.prev should be back.value', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(q.back.value, q.back.next.prev.value);
+    });
+    it('front.prev.next should be front.value', function() {
+      var q = new Queue();
+      var one   = {val : 1};
+      var two   = {val : 2};
+      var three = {val : 3};
+      q.enqueue(one);
+      q.enqueue(two);
+      q.enqueue(three);
+      assert.equal(q.front.value, q.front.prev.next.value);
     });
   });
 });
