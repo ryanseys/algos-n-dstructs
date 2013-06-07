@@ -22,20 +22,19 @@
    * LinkedList
    * @param {LinkedListNode} root Root Node
    */
-  function LinkedList(root) {
-    this.root = root;
-    this.next = null;
+  function LinkedList() {
+    this.root = null;
   };
   LinkedList.prototype = {
-    insertAtTail: function(node) {
-      if(this.root == null) this.root = node;
-      else if(this.root.next == null) this.root.next = node;
+    insertAtTail: function(value) {
+      if(this.root == null) this.root = new LinkedListNode(value);
+      else if(this.root.next == null) this.root.next = new LinkedListNode(value);
       else {
         var next = this.root.next;
         while(next.next != null) {
           next = next.next;
         }
-        next.next = node;
+        next.next = new LinkedListNode(value);
       }
     },
     print: function() {
