@@ -1,7 +1,6 @@
 var assert = require("assert");
 var ll = require('../dstructs/linkedlist');
 var LinkedList = ll.LinkedList;
-var LinkedListNode = ll.LinkedListNode;
 
 describe('LinkedList', function() {
   describe('empty LinkedList', function() {

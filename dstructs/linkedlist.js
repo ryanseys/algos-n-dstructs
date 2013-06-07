@@ -5,11 +5,11 @@
    * @param {[type]}   value  value of node
    * @param {Function} next   next node reference
    */
-  function LinkedListNode(value, next) {
+  function Node(value, next) {
     this.value = value;
     this.next = next;
   };
-  LinkedListNode.prototype = {
+  Node.prototype = {
     getValue: function() {
       return this.value;
     },
@@ -20,21 +20,21 @@
 
   /**
    * LinkedList
-   * @param {LinkedListNode} root Root Node
+   * @param {Node} root Root Node
    */
   function LinkedList() {
     this.root = null;
   };
   LinkedList.prototype = {
     insertAtTail: function(value) {
-      if(this.root == null) this.root = new LinkedListNode(value);
-      else if(this.root.next == null) this.root.next = new LinkedListNode(value);
+      if(this.root == null) this.root = new Node(value);
+      else if(this.root.next == null) this.root.next = new Node(value);
       else {
         var next = this.root.next;
         while(next.next != null) {
           next = next.next;
         }
-        next.next = new LinkedListNode(value);
+        next.next = new Node(value);
       }
     },
     print: function() {
@@ -62,7 +62,7 @@
       else node.value = newvalue;
     },
     insertAtHead: function(value) {
-      this.root = new LinkedListNode(value, this.root);
+      this.root = new Node(value, this.root);
     },
     toArray: function() {
       var arr = [];
@@ -83,5 +83,4 @@
   };
 
   exports.LinkedList = LinkedList;
-  exports.LinkedListNode = LinkedListNode;
 })();
