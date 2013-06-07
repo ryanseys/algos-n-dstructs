@@ -3,7 +3,7 @@
   /**
    * Node of LinkedList
    * @param {[type]}   value  value of node
-   * @param {Function} next   next node reference
+   * @param {Function} next   next Node reference
    */
   function Node(value, next) {
     this.value = value;

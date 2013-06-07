@@ -39,4 +39,20 @@ describe('LinkedList', function() {
       assert.equal(1, list.toArray().length);
     });
   });
+  describe('insertAtHead', function() {
+    it('search after insert at head with 0 items initially', function() {
+      var list = new LinkedList();
+      list.insertAtHead(2);
+      assert.equal(0, list.search(2));
+    });
+    it('insert 3 items at head items initially', function() {
+      var list = new LinkedList();
+      list.insertAtHead(2);
+      list.insertAtHead(3);
+      list.insertAtHead(4);
+      assert.equal(0, list.search(4));
+      assert.equal(1, list.search(3));
+      assert.equal(2, list.search(2));
+    });
+  });
 });
