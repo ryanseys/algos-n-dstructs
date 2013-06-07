@@ -21,8 +21,8 @@
 
     },
     toArray: function() {
-      var node = this.front;
       var arr = [];
+      var node = this.front;
       while(node) {
         arr.push(node.value)
         node = node.next;
