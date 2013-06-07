@@ -236,5 +236,16 @@ describe('Queue', function() {
       q.dequeue();
       assert.equal(JSON.stringify([3, 2]), JSON.stringify(q.toArray()))
     });
+    it('should be [] on queue.dequeue()', function() {
+      var q = new Queue();
+      q.dequeue();
+      assert.equal(JSON.stringify([]), JSON.stringify(q.toArray()))
+    });
+    it('should be [] on queue.enqueue(1).dequeue()', function() {
+      var q = new Queue();
+      q.enqueue(1);
+      q.dequeue();
+      assert.equal(JSON.stringify([]), JSON.stringify(q.toArray()))
+    });
   });
 });
