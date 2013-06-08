@@ -2,11 +2,15 @@
 
 Various algorithms and data-structures written in JavaScript
 
-##Data-Structures
+## Data-Structures
 
-- linkedlist
+- linked-list
 - queue
 - stack
+
+## Algorithms
+
+- bubble sort
 
 ## Tests
 
