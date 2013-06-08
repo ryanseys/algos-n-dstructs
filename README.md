@@ -1,6 +1,12 @@
 ## Algos n DStructs
 
-Various algorithms and datastructures written in JavaScript
+Various algorithms and data-structures written in JavaScript
+
+##Data-Structures
+
+- linkedlist
+- queue
+- stack
 
 ## Tests
 
