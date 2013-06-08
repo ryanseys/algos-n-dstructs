@@ -15,7 +15,7 @@
             swapped = true;
           }
         }
-        len--;
+        len--; // we know that the last element is now largest
       } while(swapped);
       return arr;
     }

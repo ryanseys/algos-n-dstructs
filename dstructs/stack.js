@@ -14,7 +14,7 @@
       this.top = new Node(value, this.top);
     },
     pop: function() {
-      if(this.isempty()) return null;
+      if(this.isEmpty()) return null;
       var node = this.top;
       this.top = this.top.next;
       return node.value;
@@ -22,7 +22,7 @@
     peek: function() {
       return this.top;
     },
-    isempty: function() {
+    isEmpty: function() {
       return !this.top;
     },
     toArray: function() {
@@ -38,18 +38,3 @@
 
   exports.Stack = Stack;
 })();
-
-var Stack = exports.Stack;
-var s = new Stack();
-s.push(1);
-s.push(3);
-console.log(JSON.stringify(s.toArray()));
-s.pop();
-console.log(JSON.stringify(s.toArray()));
-s.push(1);
-s.push(3);
-console.log(JSON.stringify(s.toArray()));
-console.log(s.pop());
-console.log(s.pop());
-console.log(s.pop());
-console.log(s.pop());
