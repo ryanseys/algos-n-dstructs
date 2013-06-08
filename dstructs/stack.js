@@ -20,7 +20,8 @@
       return node.value;
     },
     peek: function() {
-      return this.top;
+      if(!this.top) return null;
+      else return this.top.value;
     },
     isEmpty: function() {
       return !this.top;

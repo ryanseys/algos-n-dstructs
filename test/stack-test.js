@@ -46,7 +46,7 @@ describe('Stack', function() {
       assert.equal(JSON.stringify([3, 1]), JSON.stringify(s.toArray()));;
     });
   });
-  describe('#isempty', function() {
+  describe('#isEmpty', function() {
     it('should be empty when init', function() {
       var s = new Stack();
       assert.equal(true, s.isEmpty());
@@ -73,6 +73,25 @@ describe('Stack', function() {
       s.pop();
       s.pop();
       assert.equal(true, s.isEmpty());
+    });
+  });
+  describe('#peek', function() {
+    it('should return null when peek after init', function() {
+      var s = new Stack();
+      assert.equal(null, s.peek());
+    });
+    it('should return null after push then pop', function() {
+      var s = new Stack();
+      s.push(3);
+      s.pop();
+      assert.equal(null, s.peek());
+    });
+    it('should return 1 after push then pop then push(1)', function() {
+      var s = new Stack();
+      s.push(3);
+      s.pop();
+      s.push(1);
+      assert.equal(1, s.peek());
     });
   });
 });
