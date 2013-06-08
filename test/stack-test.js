@@ -93,5 +93,20 @@ describe('Stack', function() {
       s.push(1);
       assert.equal(1, s.peek());
     });
+    it('should return 2 after push then pop then push(1) then push(2)', function() {
+      var s = new Stack();
+      s.push(3);
+      s.pop();
+      s.push(1);
+      s.push(2);
+      assert.equal(2, s.peek());
+    });
+    it('should return 3 after push(3) then push(1) then pop', function() {
+      var s = new Stack();
+      s.push(3);
+      s.push(1);
+      s.pop();
+      assert.equal(3, s.peek());
+    });
   });
 });
