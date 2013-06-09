@@ -9,30 +9,19 @@
   };
   BinarySearchTree.prototype = {
     insert: function(value, node) {
-      if(!this.root) {
-        this.root = new Node(value);
-      }
+      if(!this.root) this.root = new Node(value); // special case, no node
       else {
-        if(!node) node = this.root;
+        if(!node) node = this.root; // initialize node for base insert case
         if(value == node.value) return; // do not insert values already inserted
-        if(value < node.value) {
-          if(node.right) {
-            // keep searching to the right
-            this.insert(value, node.right);
-          }
-          else {
-            node.right = new Node(value);
-          }
+        if(value > node.value) {
+          // go to right
+          if(node.right) this.insert(value, node.right); // keep searching right
+          else node.right = new Node(value);
         }
         else {
           // go to left
-          if(node.left) {
-            // keep searching to the left
-            this.insert(value, node.left);
-          }
-          else {
-            node.left = new Node(value);
-          }
+          if(node.left) this.insert(value, node.left); // keep searching left
+          else node.left = new Node(value);
         }
       }
     },
@@ -55,5 +44,6 @@ b.insert(0);
 b.insert(2);
 b.insert(4);
 b.insert(1);
+b.insert(-1);
 console.log(b.root);
 
