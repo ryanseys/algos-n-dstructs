@@ -18,5 +18,5 @@ Tests are all in the `/test` folder. The tests use `mocha` framework. To install
 
 ```
 $ npm install -g mocha
-$ mocha --watch --reporter min
+$ mocha --watch --reporter min --growl
 ```
