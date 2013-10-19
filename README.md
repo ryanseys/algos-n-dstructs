@@ -4,12 +4,14 @@ Various algorithms and data-structures written in JavaScript
 
 ## Data-Structures
 
+- binary search tree
 - linked-list
 - queue
 - stack
 
 ## Algorithms
 
+- binary search
 - bubble sort
 
 ## Tests
