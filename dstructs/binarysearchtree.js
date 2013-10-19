@@ -45,5 +45,5 @@ b.insert(2);
 b.insert(4);
 b.insert(1);
 b.insert(-1);
-console.log(b.root);
+// console.log(b.root);
 
