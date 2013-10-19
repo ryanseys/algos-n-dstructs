@@ -35,15 +35,3 @@
 
   exports.BinarySearchTree = BinarySearchTree;
 })();
-
-var BinarySearchTree = exports.BinarySearchTree;
-var b = new BinarySearchTree();
-b.insert(1);
-b.insert(3);
-b.insert(0);
-b.insert(2);
-b.insert(4);
-b.insert(1);
-b.insert(-1);
-// console.log(b.root);
-
