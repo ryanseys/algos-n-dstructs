@@ -4,9 +4,11 @@
     this.right = null;
     this.left = null;
   }
+
   function BinarySearchTree() {
     this.root = null;
-  };
+  }
+
   BinarySearchTree.prototype = {
     insert: function(value, node) {
       if(!this.root) this.root = new Node(value); // special case, no node
