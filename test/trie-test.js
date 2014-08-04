@@ -38,7 +38,7 @@ describe('Trie', function() {
   describe('#insertFile', function() {
     it('should insert words from file', function(done) {
       var t = new Trie();
-      t.insertFile(__dirname + '/../words', function(err) {
+      t.insertFile(__dirname + '/../words.txt', function(err) {
         done(err);
       });
     });
