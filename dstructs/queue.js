@@ -13,7 +13,9 @@
   };
   Queue.prototype = {
     enqueue: function(value) {
-      if(!this.front && !this.back) this.front = this.back = new Node(value);
+      if (!this.front && !this.back) {
+        this.front = this.back = new Node(value);
+      }
       else {
         var back = this.back;
         this.back = new Node(value);
@@ -21,10 +23,11 @@
         this.back.next.prev = this.back;
       }
     },
+
     dequeue: function() {
       var front = this.front;
-      if(!front) return null;
-      if(!front.prev) {
+      if (!front) return null;
+      if (!front.prev) {
         this.front = this.back = null;
         return front.value;
       }
@@ -35,17 +38,19 @@
         return front.value;
       }
     },
+
     peek: function() {
-      if(!this.front) return null;
+      if (!this.front) return null;
       else {
         return this.front.value;
       }
     },
+
     toArray: function() {
       var arr = [];
       var node = this.back;
-      while(node) {
-        arr.push(node.value)
+      while (node) {
+        arr.push(node.value);
         node = node.next;
       }
       return arr;
